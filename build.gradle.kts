@@ -69,6 +69,10 @@ koverReport {
 }
 
 tasks {
+    runIde {
+        autoReloadPlugins.set(true)
+    }
+
     wrapper {
         gradleVersion = properties("gradleVersion").get()
     }

@@ -1,16 +1,46 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.pernilsalat.newbarrelplugin</id>
-    <name>new-barrel-plugin Template</name>
-    <vendor>pernilsalat</vendor>
+    <name>Entrypoint</name>
+    <vendor email="jazzel88@gmail.com">Kirian Olle</vendor>
 
     <depends>com.intellij.modules.platform</depends>
-
+    <depends>org.jetbrains.plugins.sass</depends>
+    <depends>org.jetbrains.plugins.vue</depends>
+    <depends>JavaScript</depends>
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup
+           id="Barrels notification"
+           displayType="BALLOON"
+        />
+        <applicationService serviceImplementation="com.github.pernilsalat.newbarrelplugin.popup.FormPersisted"/>
+
         <toolWindow factoryClass="com.github.pernilsalat.newbarrelplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
     </extensions>
+
+    <actions>
+        <action
+            id="com.github.pernilsalat.newbarrelplugin.actions.CreateNewBarrel"
+            class="com.github.pernilsalat.newbarrelplugin.actions.CreateNewBarrel"
+            text="Barrel"
+            description="Create new Barrel folder"
+            icon="AllIcons.Nodes.Folder"
+        >
+            <add-to-group group-id="NewGroup" anchor="before" relative-to-action="FileTemplateSeparatorGroup"/>
+        </action>
+
+        <action
+            id="com.github.pernilsalat.newbarrelplugin.actions.CreateEditBarrelFile"
+            class="com.github.pernilsalat.newbarrelplugin.actions.CreateEditBarrelFile"
+            text="Create/Add Entrypoint"
+            description="Create/Add Entrypoint file"
+            icon="AllIcons.Nodes.Folder"
+        >
+            <add-to-group group-id="NewGroup" anchor="before" relative-to-action="FileTemplateSeparatorGroup"/>
+        </action>
+    </actions>
 
     <applicationListeners>
         <listener class="com.github.pernilsalat.newbarrelplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
