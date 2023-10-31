@@ -3,12 +3,12 @@ package com.github.pernilsalat.newbarrelplugin.config
 object Supported {
     val extensions = mapOf<String, ALanguage>(
         "js" to JavaScript,
-        "jsx" to JavaScript,
+        "jsx" to JSX,
         "ts" to TypeScript,
-        "tsx" to TypeScript,
+        "tsx" to TSX,
         "vue" to Vue,
-        SCSS.indexExtension to SCSS,
-    );
+        "scss" to SCSS,
+    )
 
-    val List = listOf<ALanguage>(JavaScript, TypeScript, SCSS, Vue)
+    val List: Collection<ALanguage> = extensions.values
 }

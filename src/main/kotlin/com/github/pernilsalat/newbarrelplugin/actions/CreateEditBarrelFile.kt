@@ -14,14 +14,14 @@ import com.intellij.psi.PsiFileFactory
 
 class CreateEditBarrelFile : MultipleFilesSelected() {
     override fun actionPerformed(event: AnActionEvent) {
-        val project: Project = event.project!!;
-        val fileEditorManager: FileEditorManager = FileEditorManager.getInstance(project);
-        val fileFactory: PsiFileFactory = PsiFileFactory.getInstance(project);
-        val psiElements: Array<PsiElement> = event.getData(PlatformDataKeys.PSI_ELEMENT_ARRAY)!!;
+        val project: Project = event.project!!
+        val fileEditorManager: FileEditorManager = FileEditorManager.getInstance(project)
+        val fileFactory: PsiFileFactory = PsiFileFactory.getInstance(project)
+        val psiElements: Array<PsiElement> = event.getData(PlatformDataKeys.PSI_ELEMENT_ARRAY)!!
         var psiFiles: List<PsiFile> = psiElements.map { it.containingFile }
-        val first: PsiFile = psiFiles[0];
-        val parent: PsiDirectory = first.parent!!;
-        val fileExtension = first.fileType.defaultExtension;
+        val first: PsiFile = psiFiles[0]
+        val parent: PsiDirectory = first.parent!!
+        val fileExtension = first.fileType.defaultExtension
         val language = Supported.extensions[fileExtension]
         if (language == null) {
             val msg = "Supported extensions: ${Supported.extensions.keys}. Found: $fileExtension"
@@ -42,25 +42,25 @@ class CreateEditBarrelFile : MultipleFilesSelected() {
                 val newIndexFile: PsiFile = fileFactory.createFileFromText(
                     language.indexFullName,
                     language.fileType,
-                    content
+                    content,
                 )
                 parent.add(newIndexFile)
                 fileEditorManager.openFile(newIndexFile.virtualFile, true)
 
-                val msg = "Entrypoint \"${language.indexFullName}\" successfully created";
+                val msg = "Entrypoint \"${language.indexFullName}\" successfully created"
                 Notifier.notifySuccess(project, msg)
             } else {
                 var newIndexFile: PsiFile = fileFactory.createFileFromText(
                     language.indexFullName,
                     language.fileType,
-                    "${indexFile.text}\n$content"
+                    "${indexFile.text}\n$content",
                 )
                 indexFile.delete()
                 newIndexFile = parent.add(newIndexFile).containingFile
 
                 fileEditorManager.openFile(newIndexFile.virtualFile, true, true)
 
-                val msg = "Entrypoint \"${language.indexFullName}\" lines successfully created";
+                val msg = "Entrypoint \"${language.indexFullName}\" lines successfully created"
                 Notifier.notifySuccess(project, msg)
             }
         }

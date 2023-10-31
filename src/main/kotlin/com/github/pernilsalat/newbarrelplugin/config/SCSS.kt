@@ -7,6 +7,9 @@ object SCSS : ALanguage() {
     override val indexName: String
         get() = "_index"
 
+    override val indexExtension: String
+        get() = "scss"
+
     override val icon: Icon
         get() = SassIcons.Sass
 

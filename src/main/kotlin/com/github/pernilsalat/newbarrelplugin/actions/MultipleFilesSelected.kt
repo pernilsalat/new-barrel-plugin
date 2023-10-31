@@ -7,19 +7,19 @@ import com.intellij.openapi.vfs.VirtualFile
 
 abstract class MultipleFilesSelected : AnAction() {
     override fun update(event: AnActionEvent) {
-        val selectedFiles: Array<VirtualFile> = event.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY) ?: emptyArray();
+        val selectedFiles: Array<VirtualFile> = event.getData(PlatformDataKeys.VIRTUAL_FILE_ARRAY) ?: emptyArray()
         super.update(event)
 
-        var canShow = false;
-        if (selectedFiles.size > 1) {
+        var canShow = false
+        if (selectedFiles.isNotEmpty()) {
             val firstFile = selectedFiles[0]
             val firstFileType = firstFile.fileType.defaultExtension
             val firstFileParentName = firstFile.parent.name
 
             canShow = selectedFiles.all {
-                !it.isDirectory
-                && it.fileType.defaultExtension == firstFileType
-                && it.parent.name == firstFileParentName
+                !it.isDirectory &&
+                    it.fileType.defaultExtension == firstFileType &&
+                    it.parent.name == firstFileParentName
             }
         }
 

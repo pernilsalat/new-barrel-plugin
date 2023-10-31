@@ -15,9 +15,7 @@
            id="Barrels notification"
            displayType="BALLOON"
         />
-        <applicationService serviceImplementation="com.github.pernilsalat.newbarrelplugin.popup.FormPersisted"/>
-
-        <toolWindow factoryClass="com.github.pernilsalat.newbarrelplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <applicationService serviceImplementation="com.github.pernilsalat.newbarrelplugin.services.FormPersisted"/>
     </extensions>
 
     <actions>
@@ -26,7 +24,7 @@
             class="com.github.pernilsalat.newbarrelplugin.actions.CreateNewBarrel"
             text="Barrel"
             description="Create new Barrel folder"
-            icon="AllIcons.Nodes.Folder"
+            icon="/icons/pluginIcon.svg"
         >
             <add-to-group group-id="NewGroup" anchor="before" relative-to-action="FileTemplateSeparatorGroup"/>
         </action>
@@ -34,15 +32,11 @@
         <action
             id="com.github.pernilsalat.newbarrelplugin.actions.CreateEditBarrelFile"
             class="com.github.pernilsalat.newbarrelplugin.actions.CreateEditBarrelFile"
-            text="Create/Add Entrypoint"
+            text="To Entrypoint"
             description="Create/Add Entrypoint file"
-            icon="AllIcons.Nodes.Folder"
+            icon="/icons/pluginIcon.svg"
         >
             <add-to-group group-id="NewGroup" anchor="before" relative-to-action="FileTemplateSeparatorGroup"/>
         </action>
     </actions>
-
-    <applicationListeners>
-        <listener class="com.github.pernilsalat.newbarrelplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
 </idea-plugin>

@@ -13,7 +13,7 @@ object Notifier {
     private fun notifyMessage(project: Project, content: String, type: NotificationType) {
         notificationManager
             .createNotification(content, type)
-            .notify(project);
+            .notify(project)
     }
 
     fun notifyError(project: Project, content: String) {
