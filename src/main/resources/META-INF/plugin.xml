@@ -6,8 +6,9 @@
     <vendor email="jazzel88@gmail.com">Kirian Olle</vendor>
 
     <description>
-        Helper plugin for adding index files (aka barrels) in selected directory or adding lines to an existing entrypoint (index). Just select a directory and select new "Barrel"
-        or select a file/s in the same directory and select new "Entrypoint". Currently supports barrels for TypeScript (index.ts), JavaScript (index.js), SCSS (_index.scss). If more barrels are needed let me
+        Helper plugin for adding index files (aka barrels) in selected directory or adding lines to an existing entrypoint (index).
+        Just select a directory and select new "Barrel" or select a file/s in the same directory and select new "Entrypoint".
+        Currently supports barrels for TypeScript (index.ts), JavaScript (index.js), SCSS (_index.scss). If more barrels are needed let me
         know and I can add it.
     </description>
 
