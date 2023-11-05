@@ -28,7 +28,7 @@ class NewBarrelDialog : DialogWrapper(true) {
                     items = Supported.List,
                     renderer = listCellRenderer<ALanguage> { value, _, _ ->
                         run {
-                            text = value.name
+                            text = value.id
                             icon = value.icon
                         }
                     },

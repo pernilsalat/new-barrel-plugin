@@ -44,6 +44,6 @@ data class Form(
     var isJSandTS: Boolean = false,
 ) {
     override fun toString(): String {
-        return "{ language: ${language.name}, name: $name, isJSandTS: $isJSandTS }"
+        return "{ language: ${language.id}, name: $name, isJSandTS: $isJSandTS }"
     }
 }

@@ -1,8 +1,16 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.pernilsalat.newbarrelplugin</id>
-    <name>Entrypoint</name>
+    <name>Entrypoint-JS</name>
+    <version>1.0</version>
     <vendor email="jazzel88@gmail.com">Kirian Olle</vendor>
+
+    <description>
+        Helper plugin for adding index files (aka barrels) in selected directory or adding lines to an existing entrypoint (index). Just select a directory and select new "Barrel"
+        or select a file/s in the same directory and select new "Entrypoint". Currently supports barrels for TypeScript (index.ts), JavaScript (index.js), SCSS (_index.scss). If more barrels are needed let me
+        know and I can add it.
+    </description>
+
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.plugins.sass</depends>
@@ -30,8 +38,8 @@
         </action>
 
         <action
-            id="com.github.pernilsalat.newbarrelplugin.actions.CreateEditBarrelFile"
-            class="com.github.pernilsalat.newbarrelplugin.actions.CreateEditBarrelFile"
+            id="com.github.pernilsalat.newbarrelplugin.actions.CreateEditEntrypointFile"
+            class="com.github.pernilsalat.newbarrelplugin.actions.CreateEditEntrypointFile"
             text="To Entrypoint"
             description="Create/Add Entrypoint file"
             icon="/icons/pluginIcon.svg"

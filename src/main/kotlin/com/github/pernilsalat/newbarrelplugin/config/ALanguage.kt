@@ -5,7 +5,7 @@ import com.intellij.openapi.fileTypes.LanguageFileType
 import javax.swing.Icon
 
 abstract class ALanguage() {
-    open val name: String by lazy {
+    open val id: String by lazy {
         this::class.simpleName!!
     }
 
@@ -14,7 +14,7 @@ abstract class ALanguage() {
     protected open val indexName = "index"
 
     open val fileType: LanguageFileType by lazy {
-        val language = Language.findLanguageByID(name)!!
+        val language = Language.findLanguageByID(id)!!
         language.associatedFileType!!
     }
 
