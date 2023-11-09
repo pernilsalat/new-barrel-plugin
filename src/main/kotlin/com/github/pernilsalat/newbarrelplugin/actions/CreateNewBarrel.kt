@@ -1,5 +1,6 @@
 package com.github.pernilsalat.newbarrelplugin.actions
 
+import com.github.pernilsalat.newbarrelplugin.MyBundle
 import com.github.pernilsalat.newbarrelplugin.config.ALanguage
 import com.github.pernilsalat.newbarrelplugin.notification.Notifier
 import com.github.pernilsalat.newbarrelplugin.popup.NewBarrelDialog
@@ -36,8 +37,14 @@ class CreateNewBarrel : SingleSelection() {
             val (language: ALanguage, name: String) = dialog.formPersisted.state
 
             if (psiDirectory.findSubdirectory(name) != null) {
-                val msg = "Folder \"$name\" already exists at: \"${virtualFile.path}\""
-                Notifier.notifyError(project, msg)
+                Notifier.notifyError(
+                    project,
+                    MyBundle.message(
+                        "folderExists",
+                        name,
+                        virtualFile.path,
+                    ),
+                )
 
                 return
             }
@@ -55,8 +62,10 @@ class CreateNewBarrel : SingleSelection() {
                 subDirectory.add(indexFile)
                 fileEditorManager.openFile(newFile.virtualFile, true)
 
-                val msg = "Barrel \"$name\" successfully created"
-                Notifier.notifySuccess(project, msg)
+                Notifier.notifySuccess(
+                    project,
+                    MyBundle.message("barrelCreated", name),
+                )
             }
         }
     }

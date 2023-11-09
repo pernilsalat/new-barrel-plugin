@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.github.pernilsalat.newbarrelplugin</id>
     <name>Entrypoint-JS</name>
-    <version>1.0</version>
+    <version>1.01</version>
     <vendor email="jazzel88@gmail.com">Kirian Olle</vendor>
 
     <description>

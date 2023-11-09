@@ -1,5 +1,6 @@
 package com.github.pernilsalat.newbarrelplugin.actions
 
+import com.github.pernilsalat.newbarrelplugin.MyBundle
 import com.github.pernilsalat.newbarrelplugin.config.Supported
 import com.github.pernilsalat.newbarrelplugin.notification.Notifier
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -25,8 +26,10 @@ class CreateEditEntrypointFile : MultipleFilesSelected() {
         val fileExtension = first.fileType.defaultExtension
         val language = Supported.extensions[fileExtension]
         if (language == null) {
-            val msg = "Supported extensions: ${Supported.extensions.keys}. Found: $fileExtension"
-            Notifier.notifyError(project, msg)
+            Notifier.notifyError(
+                project,
+                MyBundle.message("supportedExtensions", Supported.extensions.keys, fileExtension),
+            )
 
             return
         }
@@ -38,11 +41,11 @@ class CreateEditEntrypointFile : MultipleFilesSelected() {
                 val name = it.name.substringBeforeLast(".")
                 language.exportLineBuilder(name)
             }
-            var msg = "Entrypoint \"${language.indexFullName}\" successfully created"
+            var msg = MyBundle.message("entrypointCreated", language.indexFullName)
 
             if (indexFile != null) {
                 content = "${indexFile.text}\n$content"
-                msg = "Entrypoint \"${language.indexFullName}\" lines successfully added"
+                msg = MyBundle.message("entrypointEdit", language.indexFullName)
                 indexFile.delete()
             }
 
