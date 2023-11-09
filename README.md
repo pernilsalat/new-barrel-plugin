@@ -1,8 +1,8 @@
 # new-barrel-plugin
 
 ![Build](https://github.com/pernilsalat/new-barrel-plugin/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/com.github.pernilsalat.newbarrelplugin.svg)](https://plugins.jetbrains.com/plugin/com.github.pernilsalat.newbarrelplugin)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/com.github.pernilsalat.newbarrelplugin.svg)](https://plugins.jetbrains.com/plugin/com.github.pernilsalat.newbarrelplugin)
 
 ## Template ToDo list
 - [x] Create a new [IntelliJ Platform Plugin Template][template] project.
@@ -17,11 +17,10 @@
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
-
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
-
-To keep everything working, do not remove `<!-- ... -->` sections. 
+        Helper plugin for adding index files (aka barrels) in selected directory or adding lines to an existing entrypoint (index).
+        Just select a directory and select new "Barrel" or select a file/s in the same directory and select new "Entrypoint".
+        Currently supports barrels for TypeScript (index.ts), JavaScript (index.js), SCSS (_index.scss). If more barrels are needed let me
+        know and I can add it.
 <!-- Plugin description end -->
 
 ## Installation
